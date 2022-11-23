@@ -41,8 +41,6 @@ public class Estoque<T extends Produto> {
         }
     }
 
-
-
     public void addEstoque(T produto){
         if(!estoque.contains(produto)){
             estoque.add(produto);

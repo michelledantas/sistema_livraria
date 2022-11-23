@@ -7,6 +7,8 @@ import br.com.letscode.domain.enums.GeneroMusical;
 import br.com.letscode.domain.enums.Tipo;
 import br.com.letscode.domain.model.*;
 
+import javax.management.openmbean.OpenDataException;
+
 public class Livraria {
 
     private static Estoque<Produto> controleEstoque = new Estoque<>();
@@ -19,7 +21,7 @@ public class Livraria {
         Livraria.controleEstoque = controleEstoque;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws OpenDataException {
 
         controleEstoque.addEstoque(new Livros(1,"Código Limpo",  71.90, Genero.EDUCACAO, "Robert C. Martin", "Alta Books"));
         controleEstoque.addEstoque(new Livros(2,"Arquitetura Limpa",  69.34, Genero.EDUCACAO, "Robert C. Martin", "Alta Books"));
@@ -41,11 +43,27 @@ public class Livraria {
 
         controleEstoque.addEstoque(new Jogos(12,"Banco imobiliário", 91.99, "Amazon", GeneroJogos.TABULEIRO, "Estrela"));
 
-
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
+        System.out.println("Buscando todos os produtos em estoque");
         controleEstoque.imprimirTodosProdutos();
 
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
+        System.out.println("Buscando produto pelo Id");
+        System.out.println(controleEstoque.getProduto(1));
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
 
-        //hospedesCaninos.getHospedes().forEach(c -> c.latir());
+        System.out.println("Update \nAntes do update");
+        System.out.println(controleEstoque.getProduto(9));
+        Brinquedo barbie = new Brinquedo(9,"Barbie Bailarina", 90.00, Tipo.BONECAS);
+        controleEstoque.updateProduto(barbie);
+        System.out.println("Após update");
+        System.out.println(controleEstoque.getProduto(9));
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
+
+        System.out.println("Delete");
+        controleEstoque.removeProduto(barbie);
+        controleEstoque.imprimirTodosProdutos();
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
 
 
     }

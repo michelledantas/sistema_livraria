@@ -3,6 +3,7 @@ package br.com.letscode.domain.model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Produto implements Serializable{
@@ -38,5 +39,18 @@ public class Produto implements Serializable{
                 ", nome='" + nome + '\'' +
                 ", preco=" + preco + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produto produto = (Produto) o;
+        return idRegistro.equals(produto.idRegistro);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idRegistro);
     }
 }
