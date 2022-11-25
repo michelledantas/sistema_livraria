@@ -1,14 +1,9 @@
 package br.com.letscode.domain.model;
 
-import lombok.Data;
-
-import java.io.Serializable;
 import java.util.Objects;
 
 
-public class Produto implements Serializable{
-
-    private static final long serialVersionUID = 1L;
+public class Produto {
 
     private Integer idRegistro;
     private String nome;

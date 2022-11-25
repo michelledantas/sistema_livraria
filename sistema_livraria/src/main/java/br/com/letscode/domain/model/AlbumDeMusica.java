@@ -2,12 +2,11 @@ package br.com.letscode.domain.model;
 
 import br.com.letscode.domain.enums.GeneroMusical;
 
-import java.io.Serializable;
 
 
-public class AlbumDeMusica extends Produto implements Serializable {
+public class AlbumDeMusica extends Produto{
 
-    private static final long serialVersionUID = 1L;
+
 
     private String musicosBanda;
     private GeneroMusical generos;

@@ -62,9 +62,12 @@ public class Livraria {
 
         System.out.println("Delete");
         controleEstoque.removeProduto(barbie);
-        controleEstoque.imprimirTodosProdutos();
+        controleEstoque.getAllProduto().forEach(
+                produto -> System.out.println(produto));
+        //controleEstoque.imprimirTodosProdutos();
         System.out.println("==========================================================================================================================================================================================================================================================================================================");
 
 
+        System.out.println("Adicionando no carrinho");
     }
 }

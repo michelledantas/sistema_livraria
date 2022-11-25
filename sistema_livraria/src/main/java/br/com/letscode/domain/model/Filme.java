@@ -2,11 +2,8 @@ package br.com.letscode.domain.model;
 
 import br.com.letscode.domain.enums.Genero;
 
-import java.io.Serializable;
+public class Filme extends Produto {
 
-public class Filme extends Produto implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     private String estudio;
     private String diretores;

@@ -2,12 +2,8 @@ package br.com.letscode.domain.model;
 
 import br.com.letscode.domain.enums.Tipo;
 
-import java.io.Serializable;
 
-
-public class Brinquedo extends Produto implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Brinquedo extends Produto {
 
     private Tipo tipo;
 

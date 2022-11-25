@@ -4,8 +4,6 @@ import br.com.letscode.domain.enums.Genero;
 
 public class Livros extends Produto {
 
-    private static final long serialVersionUID = 1L;
-
     private Genero genero;
     private String escritor;
     private String editora;

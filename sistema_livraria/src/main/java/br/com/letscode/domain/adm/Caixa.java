@@ -2,14 +2,23 @@ package br.com.letscode.domain.adm;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
-public class Caixa implements Serializable {
+public class Caixa {
 
-    private static final long serialVersionUID = 1L;
+    private Double saldo;
 
-    private Double dinheiro;
+    public Caixa(Double valorCompra) {
+    }
 
-    //lista estática
+    public Double getDinheiro() {
+        return saldo;
+    }
+
+    public void setDinheiro(Double saldo) {
+        this.saldo += saldo;
+    }
+
+    public void addSaldo(Double valorCompra){
+        this.setDinheiro(valorCompra);
+    }
 }

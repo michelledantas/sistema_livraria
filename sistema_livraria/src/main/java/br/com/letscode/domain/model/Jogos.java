@@ -2,12 +2,8 @@ package br.com.letscode.domain.model;
 
 import br.com.letscode.domain.enums.GeneroJogos;
 
-import java.io.Serializable;
 
-
-public class Jogos extends Produto implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Jogos extends Produto {
 
     private String distribuidora;
     private GeneroJogos genero;
