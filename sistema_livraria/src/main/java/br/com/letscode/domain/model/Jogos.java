@@ -10,8 +10,8 @@ public class Jogos extends Produto {
     private String estudio;
 
 
-    public Jogos(Integer idRegistro, String nome, Double preco, String distribuidora, GeneroJogos genero, String estudio) {
-        super(idRegistro, nome, preco);
+    public Jogos(Integer idRegistro, String nome, Double preco, String distribuidora, GeneroJogos genero, String estudio, boolean conteudoAdulto) {
+        super(idRegistro, nome, preco, conteudoAdulto);
         this.distribuidora = distribuidora;
         this.genero = genero;
         this.estudio = estudio;

@@ -13,8 +13,8 @@ public class AlbumDeMusica extends Produto{
     private String selos;
     private int anoLancamento;
 
-    public AlbumDeMusica(Integer idRegistro, String nome, Double preco, String musicosBanda, GeneroMusical generos, String selos, int anoLancamento) {
-        super(idRegistro, nome, preco);
+    public AlbumDeMusica(Integer idRegistro, String nome, Double preco, String musicosBanda, GeneroMusical generos, String selos, int anoLancamento, boolean conteudoAdulto) {
+        super(idRegistro, nome, preco, conteudoAdulto);
         this.musicosBanda = musicosBanda;
         this.generos = generos;
         this.selos = selos;

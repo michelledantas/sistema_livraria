@@ -2,21 +2,27 @@ package br.com.letscode.domain.adm;
 
 public class FinalizarCompra {
 
-    private Estoque estoque;
+    private EstoqueDAO estoqueDAO;
     private Caixa caixa;
     private CarrinhoCompra carrinhoCompra;
+    private Desconto desconto;
 
 
 
-    public FinalizarCompra(Estoque estoque, Caixa caixa, CarrinhoCompra carrinhoCompra) {
-        this.estoque = estoque;
+    public FinalizarCompra(EstoqueDAO estoqueDAO, Caixa caixa, Desconto desconto, CarrinhoCompra carrinhoCompra) {
+        this.estoqueDAO = estoqueDAO;
         this.caixa = caixa;
+        this.desconto = desconto;
         this.carrinhoCompra = carrinhoCompra;
     }
 
-//    public void finalizarPedido(CarrinhoCompra carrinhoCompra){
-//        caixa.addSaldo(carrinhoCompra.totalDoCarrinho());
-//    }
+    public void finalizarPedido(CarrinhoCompra carrinhoCompra){
+        System.out.println(carrinhoCompra);
+        System.out.println("Total sem desconto: " + carrinhoCompra.totalDoCarrinho());
+        System.out.println("Desconto: " + desconto.valorDoDesconto(carrinhoCompra.totalDoCarrinho()) );
+        System.out.println("Total com desconto: " + desconto.valorComDesconto(carrinhoCompra.totalDoCarrinho()) );
+        caixa.addSaldo(desconto.valorComDesconto(carrinhoCompra.totalDoCarrinho()));
+    }
 
 
 

@@ -5,20 +5,17 @@ import lombok.Data;
 @Data
 public class Caixa {
 
-    private Double saldo;
+    CarrinhoCompra carrinhoCompra;
+    private double saldo;
 
-    public Caixa(Double valorCompra) {
+    public Caixa() {
     }
 
-    public Double getDinheiro() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setDinheiro(Double saldo) {
+    public void addSaldo(double saldo) {
         this.saldo += saldo;
-    }
-
-    public void addSaldo(Double valorCompra){
-        this.setDinheiro(valorCompra);
     }
 }

@@ -7,8 +7,8 @@ public class Brinquedo extends Produto {
 
     private Tipo tipo;
 
-    public Brinquedo(Integer idRegistro, String nome, Double preco, Tipo tipo) {
-        super(idRegistro, nome, preco);
+    public Brinquedo(Integer idRegistro, String nome, Double preco, Tipo tipo, boolean conteudoAdulto) {
+        super(idRegistro, nome, preco, conteudoAdulto);
         this.tipo = tipo;
     }
 

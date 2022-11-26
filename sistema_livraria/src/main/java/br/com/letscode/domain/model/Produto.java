@@ -8,11 +8,13 @@ public class Produto {
     private Integer idRegistro;
     private String nome;
     private Double preco;
+    private boolean conteudoAdulto;
 
-    public Produto(Integer idRegistro, String nome, Double preco) {
+    public Produto(Integer idRegistro, String nome, Double preco, boolean conteudoAdulto) {
         this.idRegistro = idRegistro;
         this.nome = nome;
         this.preco = preco;
+        this.conteudoAdulto = conteudoAdulto;
     }
 
     public Integer getIdRegistro() {
@@ -25,6 +27,10 @@ public class Produto {
 
     public Double getPreco() {
         return preco;
+    }
+
+    public boolean isConteudoAdulto() {
+        return conteudoAdulto;
     }
 
     @Override

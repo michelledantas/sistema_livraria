@@ -28,10 +28,10 @@ Além disso nosso sistema deve possuir um caixa. Este caixa deve ter a informaç
 
 Algumas funcionalidades do sistema:
 Você deve ser capaz de adicionar, ver, alterar e remover qualquer produto do sistema.
-Você deve ser capaz de ver quantos itens de um tipo específico existem no estoque.
-Você deve ser capaz de ver a listagem completa dos itens em estoque.
-Você deve ser capaz de ver a listagem dos itens em estoque por categoria.
-Você deve ser capaz de realizar a operação de compra, ao realizar esta operação os produtos comprados são removidos do estoque e o dinheiro pago deve ser adicionado ao caixa.
+Você deve ser capaz de ver quantos itens de um tipo específico existem no estoqueDAO.
+Você deve ser capaz de ver a listagem completa dos itens em estoqueDAO.
+Você deve ser capaz de ver a listagem dos itens em estoqueDAO por categoria.
+Você deve ser capaz de realizar a operação de compra, ao realizar esta operação os produtos comprados são removidos do estoqueDAO e o dinheiro pago deve ser adicionado ao caixa.
 Segunda Etapa:
 Duas mudanças de escopo foi solicitada com urgência. Agora um produto pode ser adicionado com um rótulo: destinado ao público adulto. Neste caso para que a compra do produto seja realizada será necessária a apresentação dos documentos do comprador (Nome, RG, CPF e Data de Nascimento) se o comprador tiver menos de 18 anos a compra deve ser bloqueada.
 

@@ -12,7 +12,8 @@ public enum Genero {
     COMEDIAROMANTICA("Comédia Romântica"),
     TERROR("Terror"),
     INFANTIL("Infantil"),
-    EDUCACAO("Educação");
+    EDUCACAO("Educação"),
+    ADULTO("Adulto");
 
     private final String label;
     

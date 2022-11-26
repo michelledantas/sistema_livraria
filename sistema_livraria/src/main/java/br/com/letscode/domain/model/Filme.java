@@ -13,8 +13,8 @@ public class Filme extends Produto {
 
     private String oscar;
 
-    public Filme(Integer idRegistro, String nome, Double preco, String estudio, String diretores, Genero genero, String produtores, int anoLancamento, String oscar) {
-        super(idRegistro, nome, preco);
+    public Filme(Integer idRegistro, String nome, Double preco, String estudio, String diretores, Genero genero, String produtores, int anoLancamento, String oscar, boolean conteudoAdulto) {
+        super(idRegistro, nome, preco, conteudoAdulto);
         this.estudio = estudio;
         this.diretores = diretores;
         this.genero = genero;
