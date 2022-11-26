@@ -9,13 +9,14 @@ import br.com.letscode.domain.model.*;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Livraria {
 
     private static EstoqueDAO controleEstoqueDAO = new EstoqueDAO();
     private static Cliente cliente;
-    private static CarrinhoCompra carrinhoCompra = new CarrinhoCompra(controleEstoqueDAO, cliente);
+    private static CarrinhoCompra<Produto> carrinhoCompra = new CarrinhoCompra<>(controleEstoqueDAO, cliente);
     private static Caixa caixa = new Caixa();
     private static Desconto desconto =  new CalcularDesconto(); //inversao de dependencia
     private static final FinalizarCompra finalizarCompra = new FinalizarCompra(controleEstoqueDAO,caixa,desconto, carrinhoCompra);
@@ -26,7 +27,7 @@ public class Livraria {
         Cliente clienteMaiorIdade = new Cliente(1,"Maria","10.786.907-4","111.111.111-11", LocalDate.of(1992,10,21));
         Cliente clienteMenorIdade = new Cliente(1,"Maria","10.786.907-4","111.111.111-11", LocalDate.of(2012,10,21));
 
-        CarrinhoCompra carrinhoCompra = new CarrinhoCompra(controleEstoqueDAO, cliente);
+        CarrinhoCompra<Produto> carrinhoCompra = new CarrinhoCompra<>(controleEstoqueDAO, cliente);
 
         controleEstoqueDAO.add(new Livros(1,"Código Limpo",  71.90, Genero.EDUCACAO, "Robert C. Martin", "Alta Books", false));
         controleEstoqueDAO.add(new Livros(2,"Arquitetura Limpa",  69.34, Genero.EDUCACAO, "Robert C. Martin", "Alta Books", false));
@@ -74,14 +75,59 @@ public class Livraria {
 
         System.out.println("==========================================================================================================================================================================================================================================================================================================");
 
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
+
+        System.out.println("Quantidade de itens por tipo");
+
+        List<AlbumDeMusica> estoqueAlbumDeMusicas = new ArrayList<>();
+        controleEstoqueDAO.findAll().forEach(produto -> {
+            if (produto instanceof AlbumDeMusica) {
+                estoqueAlbumDeMusicas.add((AlbumDeMusica) produto);
+            }
+        });
+        System.out.println("Álbum de músicas: " + estoqueAlbumDeMusicas.stream().count());
+
+        List<Musica> estoqueMusicas = new ArrayList<>();
+        controleEstoqueDAO.findAll().forEach(produto -> {
+            if (produto instanceof Musica) {
+                estoqueMusicas.add((Musica) produto);
+            }
+        });
+        System.out.println("Músicas: " + estoqueMusicas.stream().count());
+
+        List<Brinquedo> estoqueBrinquedos = new ArrayList<>();
+        controleEstoqueDAO.findAll().forEach(produto -> {
+            if (produto instanceof Brinquedo) {
+                estoqueBrinquedos.add((Brinquedo) produto);
+            }
+        });
+        System.out.println("Brinquedos: " + estoqueBrinquedos.stream().count());
+
+        List<Filme> estoqueFilmes = new ArrayList<>();
+        controleEstoqueDAO.findAll().forEach(produto -> {
+            if (produto instanceof Filme) {
+                estoqueFilmes.add((Filme) produto);
+            }
+        });
+        System.out.println("Filmes: " + estoqueFilmes.stream().count());
+
+        List<Livros> estoqueLivros = new ArrayList<>();
+        controleEstoqueDAO.findAll().forEach(produto -> {
+            if (produto instanceof Livros) {
+                estoqueLivros.add((Livros) produto);
+            }
+        });
+        System.out.println("Livros: " + estoqueLivros.stream().count());
+
+        System.out.println("==========================================================================================================================================================================================================================================================================================================");
 
 
-//        System.out.println("Adicionando no carrinho os produtos: Barbie Profissões e Laptop Bilíngue");
-//        carrinhoCompra.addProduto( new Brinquedo(8,"Barbie Profissões", 60.00, Tipo.BONECAS, false), clienteMenorIdade);
-//        carrinhoCompra.addProduto( new Brinquedo(9,"Laptop Bilíngue, Barbie, Candide", 150.00, Tipo.EDUCATIVO, false), clienteMenorIdade);
+        System.out.println("Adicionando no carrinho os produtos: Barbie Profissões e Laptop Bilíngue");
+        carrinhoCompra.addProduto( new Brinquedo(8,"Barbie Profissões", 60.00, Tipo.BONECAS, false), clienteMenorIdade);
+        carrinhoCompra.addProduto( new Brinquedo(9,"Laptop Bilíngue, Barbie, Candide", 150.00, Tipo.EDUCATIVO, false), clienteMenorIdade);
 
-        System.out.println("Adicionando no carrinho produto de conteúdo adulto");
-        carrinhoCompra.addProduto( new Filme(13,"Filme adulto",15.99,"adulto","adulto", Genero.ADULTO,"adulto",2022,"nenhum",true), clienteMenorIdade);
+        /*System.out.println("Adicionando no carrinho produto de conteúdo adulto");
+        carrinhoCompra.addProduto( new Filme(13,"Filme adulto",15.99,"adulto","adulto", Genero.ADULTO,"adulto",2022,"nenhum",true), clienteMenorIdade);*/
 
         System.out.println("==========================================================================================================================================================================================================================================================================================================");
 
@@ -91,10 +137,6 @@ public class Livraria {
         System.out.println("==========================================================================================================================================================================================================================================================================================================");
         System.out.println("Listando estoque e visualizando que os produtos foram retirados do estoque");
         controleEstoqueDAO.findAll().forEach(System.out::println);
-
-        System.out.println("==========================================================================================================================================================================================================================================================================================================");
-        System.out.println("Itens de um tipo específico existem no estoque.");
-
 
         System.out.println("==========================================================================================================================================================================================================================================================================================================");
         System.out.println("Finalizando pedido:");

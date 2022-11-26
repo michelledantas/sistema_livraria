@@ -30,14 +30,10 @@ public class CarrinhoCompra<T extends Produto>{
         return valorTotal;
     }
 
-    public boolean acimaDe200(List<Produto> carrinhoCompra){
-        return totalDoCarrinho() >= 200;
-    }
-
     public void addProduto(Produto produto, Cliente cliente) throws Exception {
         if(!carrinhoCompra.contains(produto)){
             if (produto.isConteudoAdulto() && !cliente.maiorDeIdade()){
-                throw new Exception("Cliente menor de idade");
+                throw new Exception("Compra bloqueada! Cliente menor de idade");
             }
             carrinhoCompra.add(produto);
             estoqueDAO.delete(produto);
